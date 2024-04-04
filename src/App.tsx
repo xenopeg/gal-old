@@ -1,35 +1,41 @@
-import React, { createRef } from 'react';
-import styled from 'styled-components'
-import Sidebar from './components/Sidebar';
-
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import Sidebar from "./components/Sidebar";
+import { theme } from "./components/Theme";
+import { Header } from "./components/Header";
 
 const AppContainer = styled.div`
   height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: row;
-`
+`;
+const Body = styled.div`
+  background: ${(props) => props.theme.main.background};
+  color: ${(props) => props.theme.main.font};
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+`;
 const Main = styled.div`
   flex: 1;
-`
-const Header = styled.div`
-  position: sticky;
-  top: 0;
-  height: 100px;
-`
+`;
 
 function App() {
-  //const sidebarRef = createRef<HTMLDivElement>();
-  const [sb, b] = Sidebar({children:"sidebar"})
+  const [SidebarContainer, SidebarButton] = Sidebar({ children: "sidebar" });
   return (
     <AppContainer>
-      {sb}
-      <Main>
-        <Header>
-          {b}
-          Header
-        </Header>
-        Content
-      </Main>
+      <ThemeProvider theme={theme}>
+        <Body>
+          {SidebarContainer}
+          <Main>
+            <Header>
+              {SidebarButton}
+              <span>Header</span>
+            </Header>
+            Content
+          </Main>
+        </Body>
+      </ThemeProvider>
     </AppContainer>
   );
 }
