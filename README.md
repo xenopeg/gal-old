@@ -15,7 +15,8 @@ A remake of an old Rust egui project of mine that never really went anywhere.
 
 #### Current State
 
-Barely more than a skeleton right now.
+Barely more than a skeleton right now. 
+Currently working on setting up UI, state, DB, and Auth
 
 #### ToDo
 
