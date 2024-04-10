@@ -3,7 +3,7 @@ import styled from "styled-components";
 import type { RootState } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../state/slices/sidebar";
-import { Header } from "./Header";
+import { Header, HeaderTitle } from "./Header";
 import { PiListBold } from "react-icons/pi";
 import { Logo } from "./Logo";
 import { IconBox } from "./IconBox";
@@ -71,10 +71,13 @@ export default function Sidebar(props: {
   const sidebar = (
     <SidebarContainer className={open ? "open" : ""}>
       <Header className="unstyled">
+        <HeaderTitle>
         <IconBox>
           <Logo />
         </IconBox>
         <span>Gal</span>
+        </HeaderTitle>
+
       </Header>
       {props.children}
     </SidebarContainer>

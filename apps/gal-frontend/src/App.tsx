@@ -2,7 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Sidebar, { SidebarButton } from "./components/Sidebar";
 import { theme } from "./components/Theme";
-import { Header } from "./components/Header";
+import { Header, HeaderTitle } from "./components/Header";
 import {
   PiHouseBold,
   PiListDashesBold,
@@ -87,8 +87,12 @@ function App() {
           {SidebarContainer}
           <Main>
             <Header>
-              {SidebarToggle}
-              <span>Header</span>
+              <HeaderTitle>
+                {SidebarToggle}
+                <span>Header</span>
+              </HeaderTitle>
+              <div style={{flex:1}}></div>
+              <span>Login</span>
             </Header>
 
             <Content>
