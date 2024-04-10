@@ -7,6 +7,8 @@ import { Header } from "./Header";
 import { PiListBold } from "react-icons/pi";
 import { Logo } from "./Logo";
 import { IconBox } from "./IconBox";
+import { Link, Route, Switch } from "wouter";
+
 
 const SidebarContainer = styled.div`
   width: 0;
@@ -14,14 +16,10 @@ const SidebarContainer = styled.div`
   transition: width 0.2s;
   z-index: 2;
   background: ${(props) => props.theme.sidebar.background};
-   border-right: 2px solid ${(props) => props.theme.sidebar.border};
+  border-right: 2px solid ${(props) => props.theme.sidebar.border};
   &&.open {
     width: 250px;
   }
-`;
-
-const SidebarHeader = styled(Header)`
-  background: ${(props) => props.theme.sidebar.header};
 `;
 
 const Button = styled.button`
@@ -33,6 +31,27 @@ const Button = styled.button`
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+`;
+
+export const SidebarButton = styled(Link)`
+text-decoration: none;
+  display: flex;
+  flex-direction : row;
+  align-items: center;
+  background: transparent;
+  color: inherit;
+  font-size: 1.3em;
+  padding: .8em 0.5em;
+  border: none;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  &:hover {
+    background: ${(props) => props.theme.sidebar.button.hover};
+  }
+  &.active {
+    background: ${(props) => props.theme.sidebar.button.active};
+  }
 `;
 
 export default function Sidebar(props: {
@@ -51,12 +70,12 @@ export default function Sidebar(props: {
 
   const sidebar = (
     <SidebarContainer className={open ? "open" : ""}>
-      <SidebarHeader>
+      <Header className="unstyled">
         <IconBox>
           <Logo />
         </IconBox>
         <span>Gal</span>
-      </SidebarHeader>
+      </Header>
       {props.children}
     </SidebarContainer>
   );

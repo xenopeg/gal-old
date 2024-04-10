@@ -8,8 +8,11 @@ export const Header = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 2px solid  ${props => props.theme.header.border};
-  background: ${props => props.theme.header.background};
-  box-shadow: 0px 2px 3px ${props => props.theme.header.border};
-  padding: 0 .3em
+  padding: 0 .3em;
+
+  &:not(.unstyled){
+    border-bottom: 2px solid  ${props => props.theme.header.border};
+    background: ${props => props.theme.header.background};
+    box-shadow: 0px 2px 3px ${props => props.theme.header.border};
+  }
 `;
